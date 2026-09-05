@@ -529,6 +529,7 @@ function App() {
   const [startingCapital, setStartingCapital] = useState(270);
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState({ date: new Date().toISOString().slice(0, 10), pair: "", amount: "" });
+  const [entryType, setEntryType] = useState("trade");
   const [amountError, setAmountError] = useState(null);
   const [confetti, setConfetti] = useState(false);
   const [toast, setToast] = useState(null);
@@ -668,7 +669,7 @@ function App() {
     return pts;
   }, [trades, startingCapital]);
 
-  const totalPnl = currentCapital - startingCapital;
+  const totalPnl = useMemo(() => trades.filter((t) => t.type !== "adjustment").reduce((s, t) => s + t.amount, 0), [trades]);
   const displayCapital = useCountUp(currentCapital);
   const displayPnl = useCountUp(totalPnl);
   const displayProgress = useCountUp(progressPct, 900);
@@ -676,19 +677,27 @@ function App() {
   function handleAddTrade(e) {
     e.preventDefault();
     if (form.amount.trim() === "") {
-      setAmountError("Enter the trade's result, like 12.50 or -8.");
+      setAmountError(entryType === "trade" ? "Enter the trade's result, like 12.50 or -8." : "Enter an amount, like 100 for a deposit or -50 for a withdrawal.");
       return;
     }
     const amt = parseFloat(form.amount);
     if (isNaN(amt)) {
-      setAmountError("That doesn't look like a number. Try something like 12.50 or -8.");
+      setAmountError("That doesn't look like a number.");
       return;
     }
     setAmountError(null);
-    const trade = { id: Date.now(), date: form.date, pair: form.pair.trim(), amount: amt, lot: currentMilestone.lot };
-    const next = [trade, ...trades];
-    setTrades(next); persist(next, startingCapital); setLastAddedId(trade.id); setPopKey((k) => k + 1);
+    const entry = {
+      id: Date.now(),
+      date: form.date,
+      pair: entryType === "trade" ? form.pair.trim() : "",
+      amount: amt,
+      lot: currentMilestone.lot,
+      type: entryType,
+    };
+    const next = [entry, ...trades];
+    setTrades(next); persist(next, startingCapital); setLastAddedId(entry.id); setPopKey((k) => k + 1);
     setForm({ date: new Date().toISOString().slice(0, 10), pair: "", amount: "" });
+    setEntryType("trade");
   }
 
   function handleDelete(id) {
@@ -697,7 +706,7 @@ function App() {
     const removed = trades[idx];
     const next = trades.filter((t) => t.id !== id);
     setTrades(next); persist(next, startingCapital);
-    showToast("Trade deleted", {
+    showToast("Entry deleted", {
       tone: "slate",
       icon: "trash",
       duration: 5000,
@@ -790,6 +799,9 @@ function App() {
             </p>
             <p className="text-sm text-slate-400 leading-relaxed">
               Made a mistake logging a trade? Tap the trash icon next to it, and you'll get a few seconds to undo.
+            </p>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Withdrawing or adding cash? Switch to "Withdraw / Deposit" above the amount field — it updates your balance and lot size without counting against your trading results.
             </p>
             <button onClick={() => setShowInfo(false)} className="touch-manipulation w-full bg-slate-800 active:bg-slate-700 active:scale-95 text-slate-200 text-sm font-medium rounded-lg py-2.5 transition-all">
               Got it
@@ -912,21 +924,34 @@ function App() {
         )}
 
         <form onSubmit={handleAddTrade} className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5 space-y-3" style={{ animationDelay: "360ms" }}>
-          <div className="text-slate-500 text-sm">Log a trade</div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="flex items-center gap-1.5 bg-slate-800/70 rounded-lg p-1">
+            <button type="button" onClick={() => setEntryType("trade")}
+              className={"touch-manipulation flex-1 text-sm font-medium rounded-md py-1.5 transition-all " + (entryType === "trade" ? "bg-slate-700 text-slate-100" : "text-slate-500 active:text-slate-300")}>
+              Trade
+            </button>
+            <button type="button" onClick={() => setEntryType("adjustment")}
+              className={"touch-manipulation flex-1 text-sm font-medium rounded-md py-1.5 transition-all " + (entryType === "adjustment" ? "bg-slate-700 text-slate-100" : "text-slate-500 active:text-slate-300")}>
+              Withdraw / Deposit
+            </button>
+          </div>
+          <div className={"grid gap-3 " + (entryType === "trade" ? "grid-cols-2" : "grid-cols-1")}>
             <input type="date" value={form.date} onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
               className="touch-manipulation bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-base text-slate-100 outline-none focus:border-amber-500 transition-colors" />
-            <input type="text" placeholder="Pair (optional)" value={form.pair} onChange={(e) => setForm((f) => ({ ...f, pair: e.target.value }))}
-              className="touch-manipulation bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-base text-slate-100 outline-none focus:border-amber-500 transition-colors placeholder:text-slate-600" />
+            {entryType === "trade" && (
+              <input type="text" placeholder="Pair (optional)" value={form.pair} onChange={(e) => setForm((f) => ({ ...f, pair: e.target.value }))}
+                className="touch-manipulation bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-base text-slate-100 outline-none focus:border-amber-500 transition-colors placeholder:text-slate-600" />
+            )}
           </div>
           <div>
-            <input ref={amountInputRef} type="number" inputMode="decimal" step="0.01" placeholder="Result in $ (use - for a loss)" value={form.amount}
+            <input ref={amountInputRef} type="number" inputMode="decimal" step="0.01"
+              placeholder={entryType === "trade" ? "Result in $ (use - for a loss)" : "Amount (use - for withdrawal, + for deposit)"}
+              value={form.amount}
               onChange={(e) => { setForm((f) => ({ ...f, amount: e.target.value })); if (amountError) setAmountError(null); }}
               className={"touch-manipulation w-full bg-slate-800 border rounded-lg px-3 py-3 text-base text-slate-100 outline-none transition-colors placeholder:text-slate-600 " + (amountError ? "border-rose-500 focus:border-rose-500" : "border-slate-700 focus:border-amber-500")} />
             {amountError && <p className="text-xs text-rose-400 mt-1.5">{amountError}</p>}
           </div>
           <button type="submit" className="touch-manipulation w-full flex items-center justify-center gap-2 bg-amber-500 active:bg-amber-400 active:scale-95 text-slate-950 font-medium text-base rounded-lg py-3.5 transition-all">
-            <Icon.Plus /> Add trade
+            <Icon.Plus /> {entryType === "trade" ? "Add trade" : "Add entry"}
           </button>
         </form>
 
@@ -936,20 +961,24 @@ function App() {
             <div className="text-sm text-slate-600 py-4 text-center">No trades yet. Add your first one above.</div>
           ) : (
             <div className="space-y-1">
-              {sortedTrades.map((t) => (
-                <div key={t.id} className={"flex items-center justify-between py-3 border-b border-slate-800 last:border-0 transition-colors active:bg-slate-800/40 rounded-lg px-2 -mx-2 " + (t.id === lastAddedId ? "anim-slide-down" : "")}>
-                  <div className="flex flex-col">
-                    <span className="text-sm text-slate-300">{fmtDate(t.date)}{t.pair ? ` · ${t.pair}` : ""}</span>
-                    <span className="text-xs text-slate-600">{fmtLot(t.lot)} lot</span>
+              {sortedTrades.map((t) => {
+                const isAdjustment = t.type === "adjustment";
+                const isDeposit = isAdjustment && t.amount >= 0;
+                return (
+                  <div key={t.id} className={"flex items-center justify-between py-3 border-b border-slate-800 last:border-0 transition-colors active:bg-slate-800/40 rounded-lg px-2 -mx-2 " + (t.id === lastAddedId ? "anim-slide-down" : "")}>
+                    <div className="flex flex-col">
+                      <span className="text-sm text-slate-300">{fmtDate(t.date)}{t.pair ? ` · ${t.pair}` : ""}</span>
+                      <span className="text-xs text-slate-600">{isAdjustment ? (isDeposit ? "Deposit" : "Withdrawal") : `${fmtLot(t.lot)} lot`}</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className={"text-sm font-medium tabular-nums " + (isAdjustment ? "text-sky-400" : t.amount >= 0 ? "text-emerald-400" : "text-rose-400")}>{fmtMoney(t.amount)}</span>
+                      <button onClick={() => handleDelete(t.id)} className="touch-manipulation text-slate-700 active:text-rose-400 active:scale-90 transition-all p-2.5 -m-2.5" aria-label="Delete entry">
+                        <Icon.Trash />
+                      </button>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <span className={"text-sm font-medium tabular-nums " + (t.amount >= 0 ? "text-emerald-400" : "text-rose-400")}>{fmtMoney(t.amount)}</span>
-                    <button onClick={() => handleDelete(t.id)} className="touch-manipulation text-slate-700 active:text-rose-400 active:scale-90 transition-all p-2.5 -m-2.5" aria-label="Delete trade">
-                      <Icon.Trash />
-                    </button>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>
