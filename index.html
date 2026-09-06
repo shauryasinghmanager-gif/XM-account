@@ -21,6 +21,16 @@
   @keyframes blob-b { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-20px,16px) scale(1.15); } }
   @keyframes spin { to { transform: rotate(360deg); } }
   .anim-fade-up { animation: fade-in-up 0.6s ease both; }
+  input, select { color-scheme: dark; }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
   .anim-fade-left { animation: fade-in-left 0.45s ease both; }
   .anim-slide-down { animation: slide-down 0.4s ease both; }
   .anim-pulse-ring { animation: pulse-ring 2.2s ease-in-out infinite; }
@@ -539,6 +549,7 @@ function App() {
   const [settingsInput, setSettingsInput] = useState("");
   const [settingsError, setSettingsError] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
+  const [showFullLadder, setShowFullLadder] = useState(false);
   const milestoneIdxRef = useRef(null);
   const amountInputRef = useRef(null);
   const importInputRef = useRef(null);
@@ -639,15 +650,28 @@ function App() {
 
   const currentCapital = useMemo(() => trades.reduce((sum, t) => sum + t.amount, startingCapital), [trades, startingCapital]);
 
+  const totalPnl = useMemo(() => trades.filter((t) => t.type !== "adjustment").reduce((s, t) => s + t.amount, 0), [trades]);
+
+  // Ladder position tracks trading results only — withdrawals/deposits move your
+  // real balance but never bump you up or down a lot size.
+  const ladderCapital = startingCapital + totalPnl;
+
   const { currentMilestone, nextMilestone, progressPct, milestoneIdx } = useMemo(() => {
     let idx = 0;
-    for (let i = 0; i < MILESTONES.length; i++) if (currentCapital >= MILESTONES[i].capital) idx = i;
+    for (let i = 0; i < MILESTONES.length; i++) if (ladderCapital >= MILESTONES[i].capital) idx = i;
     const cur = MILESTONES[idx];
     const next = MILESTONES[idx + 1] || null;
     let pct = 100;
-    if (next) { pct = ((currentCapital - cur.capital) / (next.capital - cur.capital)) * 100; pct = Math.max(0, Math.min(100, pct)); }
+    if (next) { pct = ((ladderCapital - cur.capital) / (next.capital - cur.capital)) * 100; pct = Math.max(0, Math.min(100, pct)); }
     return { currentMilestone: cur, nextMilestone: next, progressPct: pct, milestoneIdx: idx };
-  }, [currentCapital, MILESTONES]);
+  }, [ladderCapital, MILESTONES]);
+
+  const visibleMilestones = useMemo(() => {
+    if (showFullLadder) return MILESTONES;
+    const from = Math.max(0, milestoneIdx - 1);
+    const to = Math.min(MILESTONES.length, milestoneIdx + 3);
+    return MILESTONES.slice(from, to);
+  }, [MILESTONES, milestoneIdx, showFullLadder]);
 
   useEffect(() => {
     if (loading) return;
@@ -669,7 +693,6 @@ function App() {
     return pts;
   }, [trades, startingCapital]);
 
-  const totalPnl = useMemo(() => trades.filter((t) => t.type !== "adjustment").reduce((s, t) => s + t.amount, 0), [trades]);
   const displayCapital = useCountUp(currentCapital);
   const displayPnl = useCountUp(totalPnl);
   const displayProgress = useCountUp(progressPct, 900);
@@ -801,7 +824,7 @@ function App() {
               Made a mistake logging a trade? Tap the trash icon next to it, and you'll get a few seconds to undo.
             </p>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Withdrawing or adding cash? Switch to "Withdraw / Deposit" above the amount field — it updates your balance and lot size without counting against your trading results.
+              Withdrawing or adding cash? Switch to "Withdraw / Deposit" above the amount field — it updates your real balance, but your lot size only ever moves based on your trading results, not cash you move in or out.
             </p>
             <button onClick={() => setShowInfo(false)} className="touch-manipulation w-full bg-slate-800 active:bg-slate-700 active:scale-95 text-slate-200 text-sm font-medium rounded-lg py-2.5 transition-all">
               Got it
@@ -843,67 +866,75 @@ function App() {
                 Save
               </button>
             </div>
+            <div className="pt-3 border-t border-slate-800 space-y-2">
+              <div className="text-xs text-slate-500">Backup</div>
+              <div className="flex gap-2">
+                <button type="button" onClick={handleExport} className="touch-manipulation flex-1 flex items-center justify-center gap-1.5 bg-slate-800 active:bg-slate-700 active:scale-95 text-slate-300 text-xs font-medium rounded-lg py-2 transition-all">
+                  <Icon.Download /> Export
+                </button>
+                <button type="button" onClick={() => importInputRef.current && importInputRef.current.click()} className="touch-manipulation flex-1 flex items-center justify-center gap-1.5 bg-slate-800 active:bg-slate-700 active:scale-95 text-slate-300 text-xs font-medium rounded-lg py-2 transition-all">
+                  <Icon.Upload /> Import
+                </button>
+                <input ref={importInputRef} type="file" accept="application/json" onChange={handleImportFile} className="hidden" />
+              </div>
+            </div>
           </form>
         </div>
       )}
 
-
-      <div className="max-w-md mx-auto px-4 pt-3 flex items-center gap-2">
-        <button onClick={handleExport} className="touch-manipulation flex-1 flex items-center justify-center gap-1.5 bg-slate-900 border border-slate-800 active:bg-slate-800 active:scale-95 text-slate-300 text-xs font-medium rounded-lg py-2 transition-all">
-          <Icon.Download /> Export backup
-        </button>
-        <button onClick={() => importInputRef.current && importInputRef.current.click()} className="touch-manipulation flex-1 flex items-center justify-center gap-1.5 bg-slate-900 border border-slate-800 active:bg-slate-800 active:scale-95 text-slate-300 text-xs font-medium rounded-lg py-2 transition-all">
-          <Icon.Upload /> Import backup
-        </button>
-        <input ref={importInputRef} type="file" accept="application/json" onChange={handleImportFile} className="hidden" />
-      </div>
-
       <div className="relative max-w-md mx-auto px-4 py-6 space-y-5" style={{ paddingBottom: "max(96px, env(safe-area-inset-bottom))" }}>
 
-        <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5" style={{ animationDelay: "0ms" }}>
-          <div className="flex items-center gap-2 text-slate-500 text-sm mb-1"><Icon.Wallet /><span>Account balance</span></div>
-          <div className="flex items-end justify-between">
-            <span key={popKey} className="anim-pop inline-block text-4xl text-slate-50 tabular-nums" style={{ fontFamily: "Georgia, 'Iowan Old Style', serif" }}>
-              {fmtMoney(displayCapital)}
-            </span>
-            <span className={"text-sm font-medium tabular-nums flex items-center gap-1 " + (totalPnl >= 0 ? "text-emerald-400" : "text-rose-400")}>
-              {totalPnl >= 0 ? <Icon.Up /> : <Icon.Down />} {fmtMoney(displayPnl)}
-            </span>
+        <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5 space-y-4" style={{ animationDelay: "0ms" }}>
+          <div>
+            <div className="flex items-center gap-2 text-slate-500 text-sm mb-1"><Icon.Wallet /><span>Account balance</span></div>
+            <div className="flex items-end justify-between">
+              <span key={popKey} className="anim-pop inline-block text-4xl text-slate-50 tabular-nums" style={{ fontFamily: "Georgia, 'Iowan Old Style', serif" }}>
+                {fmtMoney(displayCapital)}
+              </span>
+              <span className={"text-sm font-medium tabular-nums flex items-center gap-1 " + (totalPnl >= 0 ? "text-emerald-400" : "text-rose-400")}>
+                {totalPnl >= 0 ? <Icon.Up /> : <Icon.Down />} {fmtMoney(displayPnl)}
+              </span>
+            </div>
+            <button onClick={openSettings} className="touch-manipulation text-xs text-slate-500 active:text-slate-300 mt-1 underline decoration-dotted underline-offset-2">
+              Started at {fmtMoney(startingCapital)} · edit
+            </button>
           </div>
-          <button onClick={openSettings} className="touch-manipulation text-xs text-slate-500 active:text-slate-300 mt-1 underline decoration-dotted underline-offset-2">
-            Started at {fmtMoney(startingCapital)} · edit
-          </button>
-        </div>
 
-        <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5 space-y-3" style={{ animationDelay: "90ms" }}>
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-slate-500 text-sm"><Icon.Target /><span>Lot size right now</span></div>
-            <span className="anim-pulse-ring rounded-full px-3 py-1 text-lg font-semibold text-amber-400 tabular-nums bg-amber-500/10 border border-amber-500/30">
-              {fmtLot(currentMilestone.lot)} lot
-            </span>
-          </div>
-          {nextMilestone ? (
-            <>
-              <div className="relative w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-amber-500 rounded-full transition-all duration-700 ease-out relative overflow-hidden" style={{ width: displayProgress + "%" }}>
-                  <div className="shimmer-bar absolute inset-0" />
+          <div className="pt-4 border-t border-slate-800 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-slate-500 text-sm"><Icon.Target /><span>Lot size right now</span></div>
+              <span className="anim-pulse-ring rounded-full px-3 py-1 text-lg font-semibold text-amber-400 tabular-nums bg-amber-500/10 border border-amber-500/30">
+                {fmtLot(currentMilestone.lot)} lot
+              </span>
+            </div>
+            {nextMilestone ? (
+              <>
+                <div className="relative w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-amber-500 rounded-full transition-all duration-700 ease-out relative overflow-hidden" style={{ width: displayProgress + "%" }}>
+                    <div className="shimmer-bar absolute inset-0" />
+                  </div>
                 </div>
-              </div>
-              <div className="flex justify-between text-xs text-slate-500">
-                <span>{fmtMoney(currentMilestone.capital)}</span>
-                <span>{fmtMoney(nextMilestone.capital - currentCapital)} to {fmtLot(nextMilestone.lot)} lot</span>
-                <span>{fmtMoney(nextMilestone.capital)}</span>
-              </div>
-            </>
-          ) : (<div className="text-xs text-slate-500">Top tier reached — nice work.</div>)}
+                <div className="flex justify-between text-xs text-slate-500">
+                  <span>{fmtMoney(currentMilestone.capital)}</span>
+                  <span>{fmtMoney(nextMilestone.capital - ladderCapital)} to {fmtLot(nextMilestone.lot)} lot</span>
+                  <span>{fmtMoney(nextMilestone.capital)}</span>
+                </div>
+              </>
+            ) : (<div className="text-xs text-slate-500">Top tier reached — nice work.</div>)}
+          </div>
         </div>
 
         <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5" style={{ animationDelay: "180ms" }}>
-          <div className="text-slate-500 text-sm mb-3">Lot ladder</div>
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-slate-500 text-sm">Lot ladder</div>
+            <button onClick={() => setShowFullLadder((v) => !v)} className="touch-manipulation text-xs text-slate-500 active:text-slate-300 underline decoration-dotted underline-offset-2">
+              {showFullLadder ? "Show less" : "Show full ladder"}
+            </button>
+          </div>
           <div className="space-y-1.5">
-            {MILESTONES.map((m, i) => {
+            {visibleMilestones.map((m, i) => {
               const isCurrent = m.capital === currentMilestone.capital;
-              const isPast = currentCapital > m.capital && !isCurrent;
+              const isPast = ladderCapital > m.capital && !isCurrent;
               return (
                 <div key={m.capital}
                   className={"anim-fade-left flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors " + (isCurrent ? "bg-amber-500/10 border border-amber-500/30" : "border border-transparent active:bg-slate-800/50")}
@@ -926,11 +957,11 @@ function App() {
         <form onSubmit={handleAddTrade} className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5 space-y-3" style={{ animationDelay: "360ms" }}>
           <div className="flex items-center gap-1.5 bg-slate-800/70 rounded-lg p-1">
             <button type="button" onClick={() => setEntryType("trade")}
-              className={"touch-manipulation flex-1 text-sm font-medium rounded-md py-1.5 transition-all " + (entryType === "trade" ? "bg-slate-700 text-slate-100" : "text-slate-500 active:text-slate-300")}>
+              className={"touch-manipulation flex-1 text-sm font-medium rounded-md py-1.5 transition-all " + (entryType === "trade" ? "bg-slate-700 text-slate-100" : "text-slate-400 active:text-slate-200")}>
               Trade
             </button>
             <button type="button" onClick={() => setEntryType("adjustment")}
-              className={"touch-manipulation flex-1 text-sm font-medium rounded-md py-1.5 transition-all " + (entryType === "adjustment" ? "bg-slate-700 text-slate-100" : "text-slate-500 active:text-slate-300")}>
+              className={"touch-manipulation flex-1 text-sm font-medium rounded-md py-1.5 transition-all " + (entryType === "adjustment" ? "bg-slate-700 text-slate-100" : "text-slate-400 active:text-slate-200")}>
               Withdraw / Deposit
             </button>
           </div>
@@ -939,7 +970,7 @@ function App() {
               className="touch-manipulation bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-base text-slate-100 outline-none focus:border-amber-500 transition-colors" />
             {entryType === "trade" && (
               <input type="text" placeholder="Pair (optional)" value={form.pair} onChange={(e) => setForm((f) => ({ ...f, pair: e.target.value }))}
-                className="touch-manipulation bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-base text-slate-100 outline-none focus:border-amber-500 transition-colors placeholder:text-slate-600" />
+                className="touch-manipulation bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-base text-slate-100 outline-none focus:border-amber-500 transition-colors placeholder:text-slate-500" />
             )}
           </div>
           <div>
@@ -947,7 +978,7 @@ function App() {
               placeholder={entryType === "trade" ? "Result in $ (use - for a loss)" : "Amount (use - for withdrawal, + for deposit)"}
               value={form.amount}
               onChange={(e) => { setForm((f) => ({ ...f, amount: e.target.value })); if (amountError) setAmountError(null); }}
-              className={"touch-manipulation w-full bg-slate-800 border rounded-lg px-3 py-3 text-base text-slate-100 outline-none transition-colors placeholder:text-slate-600 " + (amountError ? "border-rose-500 focus:border-rose-500" : "border-slate-700 focus:border-amber-500")} />
+              className={"touch-manipulation w-full bg-slate-800 border rounded-lg px-3 py-3 text-base text-slate-100 outline-none transition-colors placeholder:text-slate-500 " + (amountError ? "border-rose-500 focus:border-rose-500" : "border-slate-700 focus:border-amber-500")} />
             {amountError && <p className="text-xs text-rose-400 mt-1.5">{amountError}</p>}
           </div>
           <button type="submit" className="touch-manipulation w-full flex items-center justify-center gap-2 bg-amber-500 active:bg-amber-400 active:scale-95 text-slate-950 font-medium text-base rounded-lg py-3.5 transition-all">
@@ -958,7 +989,7 @@ function App() {
         <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5" style={{ animationDelay: "450ms" }}>
           <div className="text-slate-500 text-sm mb-3">Trade log</div>
           {sortedTrades.length === 0 ? (
-            <div className="text-sm text-slate-600 py-4 text-center">No trades yet. Add your first one above.</div>
+            <div className="text-sm text-slate-500 py-4 text-center">No trades yet. Add your first one above.</div>
           ) : (
             <div className="space-y-1">
               {sortedTrades.map((t) => {
