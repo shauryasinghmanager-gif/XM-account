@@ -5,40 +5,196 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Lot Tracker</title>
 <style>
-*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.-left-10{left:-2.5rem}.-right-16{right:-4rem}.-top-16{top:-4rem}.left-1\/2{left:50%}.right-5{right:1.25rem}.top-0{top:0}.top-4{top:1rem}.top-40{top:10rem}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.-m-2\.5{margin:-.625rem}.-mx-2{margin-left:-.5rem;margin-right:-.5rem}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:.25rem}.mb-3{margin-bottom:.75rem}.mt-1{margin-top:.25rem}.block{display:block}.inline-block{display:inline-block}.inline{display:inline}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-1\.5{height:.375rem}.h-14{height:3.5rem}.h-40{height:10rem}.h-5{height:1.25rem}.h-56{height:14rem}.h-64{height:16rem}.h-full{height:100%}.min-h-full{min-height:100%}.w-14{width:3.5rem}.w-5{width:1.25rem}.w-56{width:14rem}.w-64{width:16rem}.w-full{width:100%}.max-w-md{max-width:28rem}.flex-1{flex:1 1 0%}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.touch-manipulation{touch-action:manipulation}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.flex-col{flex-direction:column}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-1\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.375rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.375rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-xl{border-radius:.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-amber-400{--tw-border-opacity:1;border-color:rgb(251 191 36/var(--tw-border-opacity,1))}.border-amber-500\/30{border-color:rgba(245,158,11,.3)}.border-slate-700{--tw-border-opacity:1;border-color:rgb(51 65 85/var(--tw-border-opacity,1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59/var(--tw-border-opacity,1))}.border-transparent{border-color:transparent}.border-t-transparent{border-top-color:transparent}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11/var(--tw-bg-opacity,1))}.bg-amber-500\/10{background-color:rgba(245,158,11,.1)}.bg-emerald-500\/10{background-color:rgba(16,185,129,.1)}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-900\/80{background-color:rgba(15,23,42,.8)}.bg-slate-950{--tw-bg-opacity:1;background-color:rgb(2 6 23/var(--tw-bg-opacity,1))}.bg-slate-950\/85{background-color:rgba(2,6,23,.85)}.p-10{padding:2.5rem}.p-2\.5{padding:.625rem}.p-5{padding:1.25rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pt-3{padding-top:.75rem}.text-center{text-align:center}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xs{font-size:.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.tabular-nums{--tw-numeric-spacing:tabular-nums;font-variant-numeric:var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction)}.text-amber-300{--tw-text-opacity:1;color:rgb(252 211 77/var(--tw-text-opacity,1))}.text-amber-400{--tw-text-opacity:1;color:rgb(251 191 36/var(--tw-text-opacity,1))}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153/var(--tw-text-opacity,1))}.text-rose-400{--tw-text-opacity:1;color:rgb(251 113 133/var(--tw-text-opacity,1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-50{--tw-text-opacity:1;color:rgb(248 250 252/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-950{--tw-text-opacity:1;color:rgb(2 6 23/var(--tw-text-opacity,1))}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-amber-500\/30{--tw-shadow-color:rgba(245,158,11,.3);--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline:2px solid transparent;outline-offset:2px}.blur-3xl{--tw-blur:blur(64px)}.blur-3xl,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur{--tw-backdrop-blur:blur(8px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-700{transition-duration:.7s}.ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}.ease-out{transition-timing-function:cubic-bezier(0,0,.2,1)}.placeholder\:text-slate-600::-moz-placeholder{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.placeholder\:text-slate-600::placeholder{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.last\:border-0:last-child{border-width:0}.focus\:border-amber-500:focus{--tw-border-opacity:1;border-color:rgb(245 158 11/var(--tw-border-opacity,1))}.active\:scale-90:active{--tw-scale-x:.9;--tw-scale-y:.9}.active\:scale-90:active,.active\:scale-95:active{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95}.active\:bg-amber-400:active{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1))}.active\:bg-slate-800:active{--tw-bg-opacity:1;background-color:rgb(30 41 59/var(--tw-bg-opacity,1))}.active\:bg-slate-800\/40:active{background-color:rgba(30,41,59,.4)}.active\:bg-slate-800\/50:active{background-color:rgba(30,41,59,.5)}.active\:text-rose-400:active{--tw-text-opacity:1;color:rgb(251 113 133/var(--tw-text-opacity,1))}
-</style>
-<style>
-  html, body, #root { height: 100%; background: #020617; }
-  body { margin: 0; -webkit-tap-highlight-color: transparent; }
-  @keyframes confetti-fall { 0% { transform: translateY(0) rotate(0deg); opacity: 1; } 100% { transform: translateY(420px) rotate(340deg); opacity: 0; } }
-  @keyframes fade-in-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes fade-in-left { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
-  @keyframes slide-down { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulse-ring { 0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.35); } 50% { box-shadow: 0 0 0 10px rgba(251,191,36,0); } }
-  @keyframes shimmer { 0% { background-position: -150% 0; } 100% { background-position: 250% 0; } }
-  @keyframes number-pop { 0% { transform: scale(1); } 35% { transform: scale(1.1); } 100% { transform: scale(1); } }
-  @keyframes blob-a { 0%, 100% { transform: translate(0,0) scale(1); } 33% { transform: translate(24px,-18px) scale(1.12); } 66% { transform: translate(-16px,14px) scale(0.94); } }
-  @keyframes blob-b { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-20px,16px) scale(1.15); } }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .anim-fade-up { animation: fade-in-up 0.6s ease both; }
-  input, select { color-scheme: dark; }
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  input[type=number] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-  }
-  .anim-fade-left { animation: fade-in-left 0.45s ease both; }
-  .anim-slide-down { animation: slide-down 0.4s ease both; }
-  .anim-pulse-ring { animation: pulse-ring 2.2s ease-in-out infinite; }
-  .anim-pop { animation: number-pop 0.5s ease; }
-  .anim-spin { animation: spin 0.8s linear infinite; }
-  .shimmer-bar { background-image: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent); background-size: 60% 100%; animation: shimmer 2s linear infinite; }
-  .blob-a { animation: blob-a 9s ease-in-out infinite; }
-  .blob-b { animation: blob-b 11s ease-in-out infinite; }
+:root{
+  --bg:#0b0c0f;
+  --panel:#131418;
+  --panel-2:#17181d;
+  --line:#232429;
+  --line-soft:#1b1c21;
+  --ink:#ececee;
+  --ink-dim:#93959e;
+  --ink-faint:#54565e;
+  --gain:#33c17a;
+  --gain-dim:rgba(51,193,122,.14);
+  --loss:#ef5b4e;
+  --loss-dim:rgba(239,91,78,.14);
+  --brass:#d9a441;
+  --brass-dim:rgba(217,164,65,.14);
+  --cash:#4fa3d1;
+  --cash-dim:rgba(79,163,209,.14);
+  --font-mono: ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,Consolas,monospace;
+  --font-sans: -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body,#root{height:100%;background:var(--bg);}
+body{margin:0;-webkit-tap-highlight-color:transparent;font-family:var(--font-sans);color:var(--ink);}
+button{font-family:inherit;color:inherit;background:none;border:none;padding:0;}
+input,select{font-family:inherit;color:inherit;color-scheme:dark;background:none;border:none;}
+input::placeholder{color:var(--ink-faint);}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0;}
+input[type=number]{-moz-appearance:textfield;}
+[role=button],button{cursor:pointer;}
+svg{display:block;}
+:focus-visible{outline:2px solid var(--brass);outline-offset:2px;border-radius:4px;}
+
+@keyframes confetti-fall{0%{transform:translateY(0) rotate(0deg);opacity:1;}100%{transform:translateY(420px) rotate(300deg);opacity:0;}}
+@keyframes fade-up{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fade-left{from{opacity:0;transform:translateX(-8px);}to{opacity:1;transform:translateX(0);}}
+@keyframes slide-down{from{opacity:0;transform:translate(-50%,-8px);}to{opacity:1;transform:translate(-50%,0);}}
+@keyframes tick-glow{0%,100%{box-shadow:0 0 0 0 rgba(217,164,65,.32);}50%{box-shadow:0 0 0 7px rgba(217,164,65,0);}}
+@keyframes number-pop{0%{transform:scale(1);}35%{transform:scale(1.08);}100%{transform:scale(1);}}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes draw-line{from{stroke-dashoffset:var(--len);}to{stroke-dashoffset:0;}}
+
+.anim-fade-up{animation:fade-up .5s ease both;}
+.anim-fade-left{animation:fade-left .4s ease both;}
+.anim-slide-down{animation:slide-down .35s ease both;}
+.anim-pop{animation:number-pop .45s ease;}
+.anim-spin{animation:spin .8s linear infinite;}
+.anim-tick{animation:tick-glow 2.4s ease-in-out infinite;}
+
+/* ---------- layout ---------- */
+.app{min-height:100%;background:var(--bg);color:var(--ink);position:relative;font-family:var(--font-sans);touch-action:manipulation;}
+.container{max-width:460px;margin:0 auto;padding:0 18px;}
+.stack{display:flex;flex-direction:column;}
+.row{display:flex;align-items:center;}
+.between{justify-content:space-between;}
+.center{justify-content:center;}
+.g1{gap:5px;}.g2{gap:9px;}.g3{gap:13px;}
+.grow{flex:1 1 0%;}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums;}
+.hide{display:none;}
+
+/* ---------- ticker header ---------- */
+.ticker{position:sticky;top:0;z-index:30;background:var(--bg);border-bottom:1px solid var(--line);}
+.ticker-inner{padding:11px 18px;}
+.ticker-balance{font-size:14px;color:var(--ink-dim);}
+.icon-btn{color:var(--ink-faint);padding:6px;margin:-6px;transition:color .12s ease,transform .12s ease;}
+.icon-btn:active{color:var(--ink);transform:scale(.9);}
+.lot-chip{font-size:12.5px;font-weight:600;color:var(--brass);background:var(--brass-dim);border:1px solid rgba(217,164,65,.35);border-radius:100px;padding:4px 11px;}
+
+/* ---------- toast ---------- */
+.toast-wrap{position:fixed;top:14px;left:50%;z-index:50;}
+.toast{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:500;padding:10px 16px;border-radius:9px;background:var(--panel);border:1px solid var(--line);color:var(--ink);box-shadow:0 8px 24px rgba(0,0,0,.4);white-space:nowrap;}
+.toast.amber{border-color:rgba(217,164,65,.4);}
+.toast.amber svg{color:var(--brass);}
+.toast{cursor:pointer;}
+.toast-action{margin-left:2px;display:flex;align-items:center;gap:4px;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:2px;}
+.toast-action:active{opacity:.6;}
+
+/* ---------- hero (unboxed, sits on bg) ---------- */
+.hero{padding:26px 0 22px;border-bottom:1px solid var(--line);}
+.hero-label{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-dim);margin-bottom:6px;}
+.hero-balance{font-family:var(--font-mono);font-size:2.55rem;font-weight:600;letter-spacing:-0.01em;color:var(--ink);line-height:1;}
+.hero-pnl{font-family:var(--font-mono);font-size:14px;font-weight:600;display:flex;align-items:center;gap:4px;}
+.hero-pnl.gain{color:var(--gain);}
+.hero-pnl.loss{color:var(--loss);}
+.hero-edit{font-size:12.5px;color:var(--ink-faint);margin-top:5px;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;}
+.hero-edit:active{color:var(--ink-dim);}
+
+.lot-row{margin-top:20px;padding-top:18px;border-top:1px solid var(--line-soft);}
+.lot-now-label{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-dim);}
+.lot-now-value{font-family:var(--font-mono);font-size:17px;font-weight:700;color:var(--brass);background:var(--brass-dim);border:1px solid rgba(217,164,65,.35);border-radius:100px;padding:4px 13px;}
+.progress-track{position:relative;width:100%;height:3px;background:var(--line);border-radius:3px;overflow:hidden;margin-top:14px;}
+.progress-fill{height:100%;background:var(--brass);border-radius:3px;transition:width .7s cubic-bezier(.4,0,.2,1);}
+.progress-labels{display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink-faint);margin-top:7px;font-family:var(--font-mono);}
+.progress-mid{font-family:var(--font-sans);color:var(--ink-dim);}
+.top-tier{font-size:12.5px;color:var(--ink-faint);margin-top:12px;}
+
+/* ---------- section shell (secondary content gets a hairline box) ---------- */
+.panel{border:1px solid var(--line);border-radius:10px;padding:18px;background:var(--panel);}
+.section-gap{margin-top:16px;}
+.section-label{font-size:13px;color:var(--ink-dim);}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.link-mini{font-size:12px;color:var(--ink-faint);text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;}
+.link-mini:active{color:var(--ink-dim);}
+
+/* ---------- ladder (staircase) ---------- */
+.ladder{position:relative;padding-left:6px;}
+.rung{position:relative;display:flex;align-items:center;justify-content:space-between;padding:9px 12px;border-radius:7px;font-size:13.5px;margin-bottom:3px;border:1px solid transparent;transition:background .15s ease;}
+.rung:last-child{margin-bottom:0;}
+.rung.current{background:var(--brass-dim);border-color:rgba(217,164,65,.32);}
+.rung-dot{width:6px;height:6px;border-radius:50%;background:var(--ink-faint);flex-shrink:0;margin-right:10px;}
+.rung.current .rung-dot{background:var(--brass);box-shadow:0 0 0 3px var(--brass-dim);}
+.rung.past .rung-dot{background:var(--ink-faint);}
+.rung-cap{color:var(--ink-dim);}
+.rung.current .rung-cap{color:var(--brass);font-weight:600;}
+.rung.past .rung-cap{color:var(--ink-faint);}
+.rung-lot{font-family:var(--font-mono);color:var(--ink-faint);}
+.rung.current .rung-lot{color:var(--brass);font-weight:700;}
+.rung.past .rung-lot{color:var(--ink-faint);}
+
+/* ---------- chart ---------- */
+.chart-wrap{margin-top:2px;}
+
+/* ---------- forms ---------- */
+.field{border:none;border-bottom:1px solid var(--line);padding:11px 2px;font-size:15px;color:var(--ink);width:100%;transition:border-color .15s ease;outline:none;}
+.field:focus{border-color:var(--brass);}
+.field.err{border-color:var(--loss);}
+.field-err-text{font-size:12px;color:var(--loss);margin-top:6px;}
+.field-hint{font-size:12px;color:var(--ink-faint);margin-top:6px;}
+.form-title{font-size:13px;color:var(--ink-dim);margin-bottom:14px;}
+
+.seg{display:flex;gap:8px;margin-bottom:14px;}
+.seg-btn{flex:1 1 0%;padding:11px;border-radius:8px;font-size:13.5px;font-weight:600;text-align:center;border:1px solid var(--line);color:var(--ink-dim);background:var(--panel-2);transition:background .15s ease,border-color .15s ease,color .15s ease;}
+.seg-btn:active{transform:scale(.97);}
+.seg-btn.active.deposit{background:var(--cash-dim);border-color:rgba(79,163,209,.4);color:var(--cash);}
+.seg-btn.active.withdraw{background:var(--loss-dim);border-color:rgba(239,91,78,.4);color:var(--loss);}
+.seg-btn.active.profit{background:var(--gain-dim);border-color:rgba(51,193,122,.4);color:var(--gain);}
+.seg-btn.active.loss{background:var(--loss-dim);border-color:rgba(239,91,78,.4);color:var(--loss);}
+
+.btn{touch-action:manipulation;border-radius:8px;font-weight:600;font-size:15px;padding:14px;transition:transform .12s ease,opacity .12s ease,background .12s ease;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn:active{transform:scale(.96);}
+.btn-brass{background:var(--brass);color:#0b0c0f;}
+.btn-cash{background:var(--cash);color:#0b0c0f;}
+.btn-withdraw{background:var(--loss);color:#0b0c0f;}
+.btn-profit{background:var(--gain);color:#0b0c0f;}
+.btn-loss{background:var(--loss);color:#0b0c0f;}
+.btn-ghost{background:var(--panel-2);color:var(--ink);border:1px solid var(--line);font-size:13.5px;padding:10px;}
+.btn-sm{font-size:12.5px;padding:9px;}
+
+/* ---------- ledger rows (trade / withdrawal log) ---------- */
+.ledger-row{display:flex;align-items:center;justify-content:space-between;padding:12px 4px;border-bottom:1px solid var(--line-soft);transition:background .12s ease;}
+.ledger-row:last-child{border-bottom:none;}
+.ledger-row:active{background:var(--line-soft);}
+.ledger-main{font-size:14px;color:var(--ink);}
+.ledger-sub{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-faint);margin-top:2px;}
+.ledger-amt{font-family:var(--font-mono);font-size:14.5px;font-weight:600;}
+.ledger-amt.gain{color:var(--gain);}
+.ledger-amt.loss{color:var(--loss);}
+.ledger-amt.cash{color:var(--cash);}
+.ledger-del{color:var(--ink-faint);padding:9px;margin:-9px;transition:color .12s ease,transform .12s ease;}
+.ledger-del:active{color:var(--loss);transform:scale(.9);}
+.ledger-empty{font-size:13.5px;color:var(--ink-faint);text-align:center;padding:20px 0;}
+
+/* ---------- empty states ---------- */
+.empty-state{display:flex;flex-direction:column;align-items:center;text-align:center;gap:3px;padding:30px 12px 24px;}
+.empty-icon{color:var(--ink-faint);margin-bottom:6px;}
+.empty-title{font-size:14.5px;font-weight:600;color:var(--ink-dim);}
+.empty-body{font-size:13px;color:var(--ink-faint);max-width:230px;line-height:1.5;margin:2px 0 14px;}
+.chart-empty{font-size:13px;color:var(--ink-faint);text-align:center;padding:34px 0;}
+
+/* ---------- stat pair ---------- */
+.stat-label{font-size:12px;color:var(--ink-faint);margin-bottom:3px;}
+.stat-value{font-family:var(--font-mono);font-size:17px;color:var(--ink);}
+
+/* ---------- modals ---------- */
+.overlay{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;background:rgba(4,5,7,.7);padding:0 18px;}
+.modal{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;width:100%;max-width:380px;}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.modal-title{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--ink);}
+.modal-p{font-size:13.5px;color:var(--ink-dim);line-height:1.55;margin:0 0 12px;}
+.modal-p:last-of-type{margin-bottom:16px;}
+.modal-label{font-size:13px;color:var(--ink-dim);margin-bottom:8px;display:block;}
+.backup-label{font-size:12px;color:var(--ink-faint);margin-bottom:9px;}
+
+/* ---------- bottom tab bar ---------- */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--bg);border-top:1px solid var(--line);}
+.tabbar-inner{max-width:460px;margin:0 auto;display:flex;}
+.tab{flex:1 1 0%;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 8px;color:var(--ink-faint);position:relative;transition:color .15s ease;}
+.tab.active{color:var(--brass);}
+.tab-label{font-size:11px;font-weight:500;}
+.tab-tick{position:absolute;top:0;left:50%;transform:translateX(-50%);width:22px;height:2px;background:var(--brass);border-radius:2px;}
 </style>
 <script>/**
  * @license React
@@ -386,6 +542,10 @@ function fmtDate(dateStr) {
   return d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: d.getFullYear() !== today.getFullYear() ? "numeric" : undefined });
 }
 
+function vibrate(pattern) {
+  try { if (navigator.vibrate) navigator.vibrate(pattern); } catch (e) {}
+}
+
 function useCountUp(value, duration = 800) {
   const [display, setDisplay] = useState(value);
   const prevRef = useRef(value);
@@ -411,87 +571,105 @@ function useCountUp(value, duration = 800) {
 /* ---- tiny inline icon set (no external icon package needed) ---- */
 const Icon = {
   Wallet: (p) => (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <rect x="2" y="6" width="20" height="14" rx="2" /><path d="M2 10h20" /><circle cx="16" cy="14" r="1.5" fill="currentColor" stroke="none" />
     </svg>
   ),
+  Home: (p) => (
+    <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <path d="M3 11l9-8 9 8" /><path d="M5 10v10h14V10" />
+    </svg>
+  ),
+  List: (p) => (
+    <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line x1="8" y1="18" x2="21" y2="18" />
+      <line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" />
+    </svg>
+  ),
+  BankNote: (p) => (
+    <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="M15 9.5c0-1.4-1.5-2.5-3-2.5s-3 .9-3 2.2 1.2 1.9 3 2.3c1.8.4 3 1 3 2.3S13.5 16 12 16s-3-1.1-3-2.5" />
+      <line x1="12" y1="5.5" x2="12" y2="7" /><line x1="12" y1="17" x2="12" y2="18.5" />
+    </svg>
+  ),
   Target: (p) => (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" {...p}>
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" {...p}>
       <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1" fill="currentColor" />
     </svg>
   ),
   Up: (p) => (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <polyline points="3 17 9 11 13 15 21 6" /><polyline points="14 6 21 6 21 13" />
     </svg>
   ),
   Down: (p) => (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <polyline points="3 7 9 13 13 9 21 18" /><polyline points="14 18 21 18 21 11" />
     </svg>
   ),
   Plus: (p) => (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" {...p}>
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" {...p}>
       <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
     </svg>
   ),
   Trash: (p) => (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <polyline points="3 6 5 6 21 6" /><path d="M8 6V4a1 1 0 011-1h6a1 1 0 011 1v2m2 0v14a1 1 0 01-1 1H7a1 1 0 01-1-1V6h12z" />
     </svg>
   ),
   Sparkle: (p) => (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" {...p}>
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" {...p}>
       <path d="M12 2l1.6 5.4L19 9l-5.4 1.6L12 16l-1.6-5.4L5 9l5.4-1.6z" />
     </svg>
   ),
   Download: (p) => (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <path d="M12 3v12" /><polyline points="7 10 12 15 17 10" /><path d="M5 19h14" />
     </svg>
   ),
   Upload: (p) => (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <path d="M12 21V9" /><polyline points="7 14 12 9 17 14" /><path d="M5 5h14" />
     </svg>
   ),
   Gear: (p) => (
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <circle cx="12" cy="12" r="3" />
       <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
     </svg>
   ),
   Close: (p) => (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" {...p}>
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" {...p}>
       <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
     </svg>
   ),
   Info: (p) => (
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" />
     </svg>
   ),
   Undo: (p) => (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <polyline points="1 4 1 10 7 10" /><path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
     </svg>
   ),
   Check: (p) => (
-    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" {...p}>
       <polyline points="20 6 9 17 4 12" />
     </svg>
   ),
 };
 
-const CONFETTI_COLORS = ["#fbbf24", "#34d399", "#60a5fa", "#f472b6", "#f87171", "#c4b5fd"];
+const CONFETTI_COLORS = ["#d9a441", "#33c17a", "#ef5b4e", "#ececee", "#4fa3d1"];
 
 function Confetti() {
-  const particles = useMemo(() => Array.from({ length: 32 }).map((_, i) => ({
+  const particles = useMemo(() => Array.from({ length: 28 }).map((_, i) => ({
     id: i, left: Math.random() * 100, color: CONFETTI_COLORS[i % CONFETTI_COLORS.length],
-    delay: Math.random() * 0.5, duration: 1.6 + Math.random() * 1, size: 5 + Math.random() * 5, rot: Math.random() * 360,
+    delay: Math.random() * 0.5, duration: 1.6 + Math.random() * 1, size: 5 + Math.random() * 4, rot: Math.random() * 360,
   })), []);
   return (
-    <div className="pointer-events-none fixed inset-0 z-50 overflow-hidden">
+    <div style={{ position: "fixed", inset: 0, zIndex: 50, overflow: "hidden", pointerEvents: "none" }}>
       {particles.map((p) => (
         <span key={p.id} style={{
           position: "absolute", left: p.left + "%", top: "-16px", width: p.size, height: p.size * 0.4,
@@ -505,16 +683,19 @@ function Confetti() {
 
 function MiniChart({ data }) {
   const pathRef = useRef(null);
-  const width = 300, height = 140, pad = 10;
+  const width = 320, height = 128, pad = 6;
   const values = data.map((d) => d.balance);
   const min = Math.min(...values), max = Math.max(...values);
   const range = max - min || 1;
+  const trendUp = values[values.length - 1] >= values[0];
+  const lineColor = trendUp ? "#33c17a" : "#ef5b4e";
   const points = data.map((d, i) => {
     const x = pad + (i / (data.length - 1 || 1)) * (width - 2 * pad);
     const y = height - pad - ((d.balance - min) / range) * (height - 2 * pad);
     return [x, y];
   });
   const pathD = points.map((p, i) => (i === 0 ? "M" : "L") + p[0] + " " + p[1]).join(" ");
+  const startY = points[0][1];
 
   useEffect(() => {
     if (!pathRef.current) return;
@@ -528,8 +709,9 @@ function MiniChart({ data }) {
   }, [pathD]);
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} className="w-full h-40">
-      <path ref={pathRef} d={pathD} fill="none" stroke="#fbbf24" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox={`0 0 ${width} ${height}`} style={{ width: "100%", height: "112px" }}>
+      <line x1={pad} y1={startY} x2={width - pad} y2={startY} stroke="#232429" strokeWidth="1" strokeDasharray="3 4" />
+      <path ref={pathRef} d={pathD} fill="none" stroke={lineColor} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -538,9 +720,10 @@ function App() {
   const [trades, setTrades] = useState([]);
   const [startingCapital, setStartingCapital] = useState(270);
   const [loading, setLoading] = useState(true);
-  const [form, setForm] = useState({ date: new Date().toISOString().slice(0, 10), pair: "", amount: "" });
-  const [entryType, setEntryType] = useState("trade");
+  const [form, setForm] = useState({ date: new Date().toISOString().slice(0, 10), type: "profit", amount: "" });
+  const [wdForm, setWdForm] = useState({ date: new Date().toISOString().slice(0, 10), type: "deposit", amount: "" });
   const [amountError, setAmountError] = useState(null);
+  const [wdAmountError, setWdAmountError] = useState(null);
   const [confetti, setConfetti] = useState(false);
   const [toast, setToast] = useState(null);
   const [lastAddedId, setLastAddedId] = useState(null);
@@ -550,17 +733,11 @@ function App() {
   const [settingsError, setSettingsError] = useState(null);
   const [showInfo, setShowInfo] = useState(false);
   const [showFullLadder, setShowFullLadder] = useState(false);
+  const [activeTab, setActiveTab] = useState("overview");
   const milestoneIdxRef = useRef(null);
   const amountInputRef = useRef(null);
   const importInputRef = useRef(null);
   const toastTimerRef = useRef(null);
-
-  function jumpToAddTrade() {
-    if (amountInputRef.current) {
-      amountInputRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-      setTimeout(() => amountInputRef.current && amountInputRef.current.focus(), 350);
-    }
-  }
 
   function showToast(message, opts = {}) {
     if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
@@ -599,6 +776,7 @@ function App() {
       setSettingsError("Enter a starting balance greater than 0.");
       return;
     }
+    vibrate(10);
     setStartingCapital(val);
     persist(trades, val);
     setSettingsOpen(false);
@@ -646,6 +824,22 @@ function App() {
     e.target.value = "";
   }
 
+  useEffect(() => {
+    function onKey(e) {
+      if (e.key !== "Escape") return;
+      if (showInfo) setShowInfo(false);
+      if (settingsOpen) setSettingsOpen(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [showInfo, settingsOpen]);
+
+  function goLogTrade() {
+    vibrate(5);
+    setActiveTab("overview");
+    setTimeout(() => { if (amountInputRef.current) amountInputRef.current.focus(); }, 350);
+  }
+
   const MILESTONES = useMemo(() => buildMilestones(startingCapital), [startingCapital]);
 
   const currentCapital = useMemo(() => trades.reduce((sum, t) => sum + t.amount, startingCapital), [trades, startingCapital]);
@@ -677,6 +871,7 @@ function App() {
     if (loading) return;
     if (milestoneIdxRef.current === null) { milestoneIdxRef.current = milestoneIdx; return; }
     if (milestoneIdx > milestoneIdxRef.current) {
+      vibrate([16, 55, 16, 55, 34]);
       setConfetti(true);
       showToast(`New tier unlocked — ${fmtLot(currentMilestone.lot)} lot`, { tone: "amber", icon: "sparkle", duration: 3400 });
       const t1 = setTimeout(() => setConfetti(false), 2400);
@@ -700,27 +895,64 @@ function App() {
   function handleAddTrade(e) {
     e.preventDefault();
     if (form.amount.trim() === "") {
-      setAmountError(entryType === "trade" ? "Enter the trade's result, like 12.50 or -8." : "Enter an amount, like 100 for a deposit or -50 for a withdrawal.");
+      setAmountError("Enter an amount greater than 0.");
       return;
     }
-    const amt = parseFloat(form.amount);
-    if (isNaN(amt)) {
+    const raw = parseFloat(form.amount);
+    if (isNaN(raw)) {
       setAmountError("That doesn't look like a number.");
       return;
     }
+    if (raw <= 0) {
+      setAmountError("Enter an amount greater than 0.");
+      return;
+    }
     setAmountError(null);
+    const amt = form.type === "loss" ? -Math.abs(raw) : Math.abs(raw);
     const entry = {
       id: Date.now(),
       date: form.date,
-      pair: entryType === "trade" ? form.pair.trim() : "",
+      pair: "",
       amount: amt,
       lot: currentMilestone.lot,
-      type: entryType,
+      type: "trade",
     };
     const next = [entry, ...trades];
+    vibrate(10);
     setTrades(next); persist(next, startingCapital); setLastAddedId(entry.id); setPopKey((k) => k + 1);
-    setForm({ date: new Date().toISOString().slice(0, 10), pair: "", amount: "" });
-    setEntryType("trade");
+    setForm((f) => ({ date: new Date().toISOString().slice(0, 10), type: f.type, amount: "" }));
+  }
+
+  function handleAddWithdrawal(e) {
+    e.preventDefault();
+    if (wdForm.amount.trim() === "") {
+      setWdAmountError("Enter an amount greater than 0.");
+      return;
+    }
+    const raw = parseFloat(wdForm.amount);
+    if (isNaN(raw)) {
+      setWdAmountError("That doesn't look like a number.");
+      return;
+    }
+    if (raw <= 0) {
+      setWdAmountError("Enter an amount greater than 0.");
+      return;
+    }
+    setWdAmountError(null);
+    const amt = wdForm.type === "withdraw" ? -Math.abs(raw) : Math.abs(raw);
+    const entry = {
+      id: Date.now(),
+      date: wdForm.date,
+      pair: "",
+      amount: amt,
+      lot: currentMilestone.lot,
+      type: "adjustment",
+    };
+    const next = [entry, ...trades];
+    vibrate(10);
+    setTrades(next); persist(next, startingCapital); setLastAddedId(entry.id);
+    setWdForm((f) => ({ date: new Date().toISOString().slice(0, 10), type: f.type, amount: "" }));
+    showToast(wdForm.type === "withdraw" ? "Withdrawal recorded" : "Deposit added", { tone: "slate", icon: "check" });
   }
 
   function handleDelete(id) {
@@ -728,6 +960,7 @@ function App() {
     if (idx === -1) return;
     const removed = trades[idx];
     const next = trades.filter((t) => t.id !== id);
+    vibrate(15);
     setTrades(next); persist(next, startingCapital);
     showToast("Entry deleted", {
       tone: "slate",
@@ -736,6 +969,7 @@ function App() {
       action: {
         label: "Undo",
         onClick: () => {
+          vibrate(10);
           const restored = [...next];
           restored.splice(idx, 0, removed);
           setTrades(restored); persist(restored, startingCapital);
@@ -746,26 +980,28 @@ function App() {
 
   if (loading) {
     return (
-      <div className="min-h-full flex items-center justify-center bg-slate-950 p-10">
-        <div className="anim-spin w-5 h-5 border-2 border-amber-400 border-t-transparent rounded-full" />
+      <div className="app" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div className="anim-spin" style={{ width: 20, height: 20, border: "2px solid #d9a441", borderTopColor: "transparent", borderRadius: "50%" }} />
       </div>
     );
   }
 
   const sortedTrades = [...trades].sort((a, b) => b.date.localeCompare(a.date) || b.id - a.id);
+  const tradeOnlyLog = sortedTrades.filter((t) => t.type !== "adjustment");
+  const adjustmentLog = sortedTrades.filter((t) => t.type === "adjustment");
+  const totalWithdrawn = adjustmentLog.filter((t) => t.amount < 0).reduce((s, t) => s + Math.abs(t.amount), 0);
+  const totalDeposited = adjustmentLog.filter((t) => t.amount >= 0).reduce((s, t) => s + t.amount, 0);
 
   return (
-    <div className="touch-manipulation min-h-full bg-slate-950 text-slate-100 relative overflow-hidden" style={{ fontFamily: "system-ui, -apple-system, sans-serif" }}>
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="blob-a absolute -top-16 -left-10 w-56 h-56 bg-amber-500/10 rounded-full blur-3xl" />
-        <div className="blob-b absolute top-40 -right-16 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl" />
-      </div>
-
+    <div className="app">
       {confetti && <Confetti />}
 
       {toast && (
-        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 anim-slide-down">
-          <div className={"flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full shadow-lg " + (toast.tone === "amber" ? "bg-amber-500 text-slate-950 shadow-amber-500/30" : "bg-slate-800 text-slate-100 border border-slate-700 shadow-black/30")}>
+        <div className="toast-wrap anim-slide-down" style={{ transform: "translateX(-50%)" }} role="status" aria-live="polite">
+          <div
+            className={"toast" + (toast.tone === "amber" ? " amber" : "")}
+            onClick={() => { if (toastTimerRef.current) clearTimeout(toastTimerRef.current); setToast(null); }}
+          >
             {toast.icon === "sparkle" && <Icon.Sparkle />}
             {toast.icon === "check" && <Icon.Check />}
             {toast.icon === "trash" && <Icon.Trash />}
@@ -773,7 +1009,7 @@ function App() {
             {toast.action && (
               <button
                 onClick={() => { toast.action.onClick(); setToast(null); if (toastTimerRef.current) clearTimeout(toastTimerRef.current); }}
-                className="ml-1 flex items-center gap-1 underline underline-offset-2 font-semibold active:opacity-70"
+                className="toast-action"
               >
                 <Icon.Undo /> {toast.action.label}
               </button>
@@ -782,21 +1018,17 @@ function App() {
         </div>
       )}
 
-      <div className="sticky top-0 z-30 bg-slate-950/85 backdrop-blur border-b border-slate-800">
-        <div className="max-w-md mx-auto px-4 py-2.5 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
-            <button onClick={() => setShowInfo(true)} aria-label="How this works"
-              className="touch-manipulation text-slate-500 active:text-slate-200 active:scale-90 transition-all p-1.5 -m-1.5">
+      <div className="ticker">
+        <div className="container ticker-inner row between">
+          <div className="row g2">
+            <button onClick={() => setShowInfo(true)} aria-label="How this works" className="icon-btn">
               <Icon.Info />
             </button>
-            <span className="text-sm text-slate-300 tabular-nums">{fmtMoney(currentCapital)}</span>
+            <span className="ticker-balance mono">{fmtMoney(currentCapital)}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-medium text-amber-400 tabular-nums bg-amber-500/10 border border-amber-500/30 rounded-full px-2.5 py-1">
-              {fmtLot(currentMilestone.lot)} lot
-            </span>
-            <button onClick={openSettings} aria-label="Settings"
-              className="touch-manipulation text-slate-500 active:text-slate-200 active:scale-90 transition-all p-1.5 -m-1.5">
+          <div className="row g2">
+            <span className="lot-chip mono">{fmtLot(currentMilestone.lot)} lot</span>
+            <button onClick={openSettings} aria-label="Settings" className="icon-btn">
               <Icon.Gear />
             </button>
           </div>
@@ -804,29 +1036,27 @@ function App() {
       </div>
 
       {showInfo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4" onClick={() => setShowInfo(false)}>
-          <div className="anim-fade-up bg-slate-900 border border-slate-700 rounded-xl p-5 w-full max-w-sm space-y-3" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-slate-200 font-medium">
-                <Icon.Info /> How this works
-              </div>
-              <button onClick={() => setShowInfo(false)} aria-label="Close" className="touch-manipulation text-slate-500 active:text-slate-200 active:scale-90 transition-all p-1 -m-1">
+        <div className="overlay" onClick={() => setShowInfo(false)}>
+          <div className="modal anim-fade-up" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-head">
+              <div className="modal-title"><Icon.Info /> How this works</div>
+              <button onClick={() => setShowInfo(false)} aria-label="Close" className="icon-btn">
                 <Icon.Close />
               </button>
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="modal-p">
               You start with {fmtMoney(startingCapital)} and a 0.01 lot. Every time your balance doubles, you move up to the next lot size on the ladder.
             </p>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="modal-p">
               Log each trade's result below — win or loss — and your balance, progress bar, and lot size update automatically. No math required.
             </p>
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="modal-p">
               Made a mistake logging a trade? Tap the trash icon next to it, and you'll get a few seconds to undo.
             </p>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Withdrawing or adding cash? Switch to "Withdraw / Deposit" above the amount field — it updates your real balance, but your lot size only ever moves based on your trading results, not cash you move in or out.
+            <p className="modal-p">
+              Withdrawing or adding cash? Use the Withdrawals tab — it updates your real balance, but your lot size only ever moves based on your trading results, not cash you move in or out.
             </p>
-            <button onClick={() => setShowInfo(false)} className="touch-manipulation w-full bg-slate-800 active:bg-slate-700 active:scale-95 text-slate-200 text-sm font-medium rounded-lg py-2.5 transition-all">
+            <button onClick={() => setShowInfo(false)} className="btn btn-ghost w-full" style={{ width: "100%" }}>
               Got it
             </button>
           </div>
@@ -834,176 +1064,260 @@ function App() {
       )}
 
       {settingsOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4" onClick={() => setSettingsOpen(false)}>
-          <form onSubmit={saveSettings} className="anim-fade-up bg-slate-900 border border-slate-700 rounded-xl p-5 w-full max-w-sm space-y-3" onClick={(e) => e.stopPropagation()}>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-slate-200 font-medium">
-                <Icon.Gear /> Settings
-              </div>
-              <button type="button" onClick={() => setSettingsOpen(false)} aria-label="Close" className="touch-manipulation text-slate-500 active:text-slate-200 active:scale-90 transition-all p-1 -m-1">
+        <div className="overlay" onClick={() => setSettingsOpen(false)}>
+          <form onSubmit={saveSettings} className="modal anim-fade-up" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-head">
+              <div className="modal-title"><Icon.Gear /> Settings</div>
+              <button type="button" onClick={() => setSettingsOpen(false)} aria-label="Close" className="icon-btn">
                 <Icon.Close />
               </button>
             </div>
-            <div>
-              <label className="text-sm text-slate-400 mb-1.5 block">Starting capital</label>
+            <div style={{ marginBottom: 16 }}>
+              <label className="modal-label">Starting capital</label>
               <input
                 type="number" inputMode="decimal" step="0.01" value={settingsInput}
                 onChange={(e) => { setSettingsInput(e.target.value); if (settingsError) setSettingsError(null); }}
-                className={"touch-manipulation w-full bg-slate-800 border rounded-lg px-3 py-3 text-base text-slate-100 outline-none transition-colors " + (settingsError ? "border-rose-500 focus:border-rose-500" : "border-slate-700 focus:border-amber-500")}
+                className={"field mono" + (settingsError ? " err" : "")}
                 autoFocus
               />
               {settingsError ? (
-                <p className="text-xs text-rose-400 mt-1.5">{settingsError}</p>
+                <p className="field-err-text">{settingsError}</p>
               ) : (
-                <p className="text-xs text-slate-500 mt-1.5">This rebuilds your lot ladder and balance history from this new baseline.</p>
+                <p className="field-hint">This rebuilds your lot ladder and balance history from this new baseline.</p>
               )}
             </div>
-            <div className="flex gap-2">
-              <button type="button" onClick={() => setSettingsOpen(false)} className="touch-manipulation flex-1 bg-slate-800 active:bg-slate-700 active:scale-95 text-slate-200 text-sm font-medium rounded-lg py-2.5 transition-all">
+            <div className="row g2">
+              <button type="button" onClick={() => setSettingsOpen(false)} className="btn btn-ghost grow">
                 Cancel
               </button>
-              <button type="submit" className="touch-manipulation flex-1 bg-amber-500 active:bg-amber-400 active:scale-95 text-slate-950 text-sm font-medium rounded-lg py-2.5 transition-all">
+              <button type="submit" className="btn btn-brass grow btn-sm" style={{ fontSize: "14px", padding: "12px" }}>
                 Save
               </button>
             </div>
-            <div className="pt-3 border-t border-slate-800 space-y-2">
-              <div className="text-xs text-slate-500">Backup</div>
-              <div className="flex gap-2">
-                <button type="button" onClick={handleExport} className="touch-manipulation flex-1 flex items-center justify-center gap-1.5 bg-slate-800 active:bg-slate-700 active:scale-95 text-slate-300 text-xs font-medium rounded-lg py-2 transition-all">
+            <div style={{ marginTop: 18, paddingTop: 16, borderTop: "1px solid var(--line)" }}>
+              <div className="backup-label">Backup</div>
+              <div className="row g2">
+                <button type="button" onClick={handleExport} className="btn btn-ghost btn-sm grow">
                   <Icon.Download /> Export
                 </button>
-                <button type="button" onClick={() => importInputRef.current && importInputRef.current.click()} className="touch-manipulation flex-1 flex items-center justify-center gap-1.5 bg-slate-800 active:bg-slate-700 active:scale-95 text-slate-300 text-xs font-medium rounded-lg py-2 transition-all">
+                <button type="button" onClick={() => importInputRef.current && importInputRef.current.click()} className="btn btn-ghost btn-sm grow">
                   <Icon.Upload /> Import
                 </button>
-                <input ref={importInputRef} type="file" accept="application/json" onChange={handleImportFile} className="hidden" />
+                <input ref={importInputRef} type="file" accept="application/json" onChange={handleImportFile} className="hide" />
               </div>
             </div>
           </form>
         </div>
       )}
 
-      <div className="relative max-w-md mx-auto px-4 py-6 space-y-5" style={{ paddingBottom: "max(96px, env(safe-area-inset-bottom))" }}>
+      <div className="container" style={{ paddingBottom: "calc(88px + env(safe-area-inset-bottom))" }}>
 
-        <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5 space-y-4" style={{ animationDelay: "0ms" }}>
-          <div>
-            <div className="flex items-center gap-2 text-slate-500 text-sm mb-1"><Icon.Wallet /><span>Account balance</span></div>
-            <div className="flex items-end justify-between">
-              <span key={popKey} className="anim-pop inline-block text-4xl text-slate-50 tabular-nums" style={{ fontFamily: "Georgia, 'Iowan Old Style', serif" }}>
-                {fmtMoney(displayCapital)}
-              </span>
-              <span className={"text-sm font-medium tabular-nums flex items-center gap-1 " + (totalPnl >= 0 ? "text-emerald-400" : "text-rose-400")}>
-                {totalPnl >= 0 ? <Icon.Up /> : <Icon.Down />} {fmtMoney(displayPnl)}
-              </span>
-            </div>
-            <button onClick={openSettings} className="touch-manipulation text-xs text-slate-500 active:text-slate-300 mt-1 underline decoration-dotted underline-offset-2">
-              Started at {fmtMoney(startingCapital)} · edit
-            </button>
+        {activeTab === "overview" && (
+        <>
+        <div className="hero anim-fade-up">
+          <div className="hero-label"><Icon.Wallet /><span>Account balance</span></div>
+          <div className="row between items-end">
+            <span key={popKey} className="anim-pop hero-balance mono">
+              {fmtMoney(displayCapital)}
+            </span>
+            <span className={"hero-pnl " + (totalPnl >= 0 ? "gain" : "loss")}>
+              {totalPnl >= 0 ? <Icon.Up /> : <Icon.Down />} {fmtMoney(displayPnl)}
+            </span>
           </div>
+          <button onClick={openSettings} className="hero-edit">
+            Started at {fmtMoney(startingCapital)} · edit
+          </button>
 
-          <div className="pt-4 border-t border-slate-800 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 text-slate-500 text-sm"><Icon.Target /><span>Lot size right now</span></div>
-              <span className="anim-pulse-ring rounded-full px-3 py-1 text-lg font-semibold text-amber-400 tabular-nums bg-amber-500/10 border border-amber-500/30">
+          <div className="lot-row">
+            <div className="row between" style={{ marginBottom: 14 }}>
+              <div className="lot-now-label"><Icon.Target /><span>Lot size right now</span></div>
+              <span className="lot-now-value anim-tick" style={{ borderRadius: 100 }}>
                 {fmtLot(currentMilestone.lot)} lot
               </span>
             </div>
             {nextMilestone ? (
               <>
-                <div className="relative w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-amber-500 rounded-full transition-all duration-700 ease-out relative overflow-hidden" style={{ width: displayProgress + "%" }}>
-                    <div className="shimmer-bar absolute inset-0" />
-                  </div>
+                <div className="progress-track">
+                  <div className="progress-fill" style={{ width: displayProgress + "%" }} />
                 </div>
-                <div className="flex justify-between text-xs text-slate-500">
+                <div className="progress-labels">
                   <span>{fmtMoney(currentMilestone.capital)}</span>
-                  <span>{fmtMoney(nextMilestone.capital - ladderCapital)} to {fmtLot(nextMilestone.lot)} lot</span>
+                  <span className="progress-mid">{fmtMoney(nextMilestone.capital - ladderCapital)} to {fmtLot(nextMilestone.lot)} lot</span>
                   <span>{fmtMoney(nextMilestone.capital)}</span>
                 </div>
               </>
-            ) : (<div className="text-xs text-slate-500">Top tier reached — nice work.</div>)}
+            ) : (<div className="top-tier">Top tier reached — nice work.</div>)}
           </div>
         </div>
 
-        <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5" style={{ animationDelay: "180ms" }}>
-          <div className="flex items-center justify-between mb-3">
-            <div className="text-slate-500 text-sm">Lot ladder</div>
-            <button onClick={() => setShowFullLadder((v) => !v)} className="touch-manipulation text-xs text-slate-500 active:text-slate-300 underline decoration-dotted underline-offset-2">
+        <div className="panel section-gap anim-fade-up" style={{ animationDelay: "120ms" }}>
+          <div className="section-head">
+            <div className="section-label">Lot ladder</div>
+            <button onClick={() => setShowFullLadder((v) => !v)} className="link-mini">
               {showFullLadder ? "Show less" : "Show full ladder"}
             </button>
           </div>
-          <div className="space-y-1.5">
+          <div className="ladder">
             {visibleMilestones.map((m, i) => {
               const isCurrent = m.capital === currentMilestone.capital;
               const isPast = ladderCapital > m.capital && !isCurrent;
               return (
                 <div key={m.capital}
-                  className={"anim-fade-left flex items-center justify-between px-3 py-2 rounded-lg text-sm transition-colors " + (isCurrent ? "bg-amber-500/10 border border-amber-500/30" : "border border-transparent active:bg-slate-800/50")}
-                  style={{ animationDelay: `${220 + i * 45}ms` }}>
-                  <span className={isCurrent ? "text-amber-300 font-medium" : isPast ? "text-slate-500" : "text-slate-400"}>{fmtMoney(m.capital)}+</span>
-                  <span className={"tabular-nums " + (isCurrent ? "text-amber-300 font-medium" : isPast ? "text-slate-600" : "text-slate-500")}>{fmtLot(m.lot)} lot</span>
+                  className={"rung anim-fade-left " + (isCurrent ? "current" : isPast ? "past" : "")}
+                  style={{ animationDelay: `${i * 40}ms`, marginLeft: Math.min(i, 6) * 11 }}>
+                  <span className="row" style={{ alignItems: "center" }}>
+                    <span className="rung-dot" />
+                    <span className="rung-cap">{fmtMoney(m.capital)}+</span>
+                  </span>
+                  <span className="rung-lot mono">{fmtLot(m.lot)} lot</span>
                 </div>
               );
             })}
           </div>
         </div>
 
-        {chartData.length > 1 && (
-          <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5" style={{ animationDelay: "270ms" }}>
-            <div className="text-slate-500 text-sm mb-3">Balance history</div>
-            <MiniChart data={chartData} />
-          </div>
-        )}
+        <div className="panel section-gap anim-fade-up" style={{ animationDelay: "180ms" }}>
+          <div className="section-label" style={{ marginBottom: 12 }}>Balance history</div>
+          {chartData.length > 1 ? (
+            <div className="chart-wrap">
+              <MiniChart data={chartData} />
+            </div>
+          ) : (
+            <div className="chart-empty">Add a trade to see your balance move.</div>
+          )}
+        </div>
 
-        <form onSubmit={handleAddTrade} className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5 space-y-3" style={{ animationDelay: "360ms" }}>
-          <div className="flex items-center gap-1.5 bg-slate-800/70 rounded-lg p-1">
-            <button type="button" onClick={() => setEntryType("trade")}
-              className={"touch-manipulation flex-1 text-sm font-medium rounded-md py-1.5 transition-all " + (entryType === "trade" ? "bg-slate-700 text-slate-100" : "text-slate-400 active:text-slate-200")}>
-              Trade
+        <form onSubmit={handleAddTrade} className="panel section-gap anim-fade-up" style={{ animationDelay: "240ms" }}>
+          <div className="form-title">Log a trade</div>
+          <div className="seg">
+            <button type="button"
+              onClick={() => { if (form.type !== "profit") vibrate(5); setForm((f) => ({ ...f, type: "profit" })); }}
+              className={"seg-btn" + (form.type === "profit" ? " active profit" : "")}>
+              Profit
             </button>
-            <button type="button" onClick={() => setEntryType("adjustment")}
-              className={"touch-manipulation flex-1 text-sm font-medium rounded-md py-1.5 transition-all " + (entryType === "adjustment" ? "bg-slate-700 text-slate-100" : "text-slate-400 active:text-slate-200")}>
-              Withdraw / Deposit
+            <button type="button"
+              onClick={() => { if (form.type !== "loss") vibrate(5); setForm((f) => ({ ...f, type: "loss" })); }}
+              className={"seg-btn" + (form.type === "loss" ? " active loss" : "")}>
+              Loss
             </button>
           </div>
-          <div className={"grid gap-3 " + (entryType === "trade" ? "grid-cols-2" : "grid-cols-1")}>
-            <input type="date" value={form.date} onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
-              className="touch-manipulation bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-base text-slate-100 outline-none focus:border-amber-500 transition-colors" />
-            {entryType === "trade" && (
-              <input type="text" placeholder="Pair (optional)" value={form.pair} onChange={(e) => setForm((f) => ({ ...f, pair: e.target.value }))}
-                className="touch-manipulation bg-slate-800 border border-slate-700 rounded-lg px-3 py-3 text-base text-slate-100 outline-none focus:border-amber-500 transition-colors placeholder:text-slate-500" />
-            )}
-          </div>
-          <div>
-            <input ref={amountInputRef} type="number" inputMode="decimal" step="0.01"
-              placeholder={entryType === "trade" ? "Result in $ (use - for a loss)" : "Amount (use - for withdrawal, + for deposit)"}
+          <input type="date" value={form.date} onChange={(e) => setForm((f) => ({ ...f, date: e.target.value }))}
+            className="field mono w-full" style={{ marginBottom: 14 }} />
+          <div style={{ marginBottom: 16 }}>
+            <input ref={amountInputRef} type="number" inputMode="decimal" step="0.01" min="0"
+              placeholder="Amount"
               value={form.amount}
               onChange={(e) => { setForm((f) => ({ ...f, amount: e.target.value })); if (amountError) setAmountError(null); }}
-              className={"touch-manipulation w-full bg-slate-800 border rounded-lg px-3 py-3 text-base text-slate-100 outline-none transition-colors placeholder:text-slate-500 " + (amountError ? "border-rose-500 focus:border-rose-500" : "border-slate-700 focus:border-amber-500")} />
-            {amountError && <p className="text-xs text-rose-400 mt-1.5">{amountError}</p>}
+              className={"field mono w-full" + (amountError ? " err" : "")} />
+            {amountError && <p className="field-err-text">{amountError}</p>}
           </div>
-          <button type="submit" className="touch-manipulation w-full flex items-center justify-center gap-2 bg-amber-500 active:bg-amber-400 active:scale-95 text-slate-950 font-medium text-base rounded-lg py-3.5 transition-all">
-            <Icon.Plus /> {entryType === "trade" ? "Add trade" : "Add entry"}
+          <button type="submit" className={"btn w-full " + (form.type === "loss" ? "btn-loss" : "btn-profit")} style={{ width: "100%" }}>
+            <Icon.Plus /> {form.type === "loss" ? "Add loss" : "Add profit"}
+          </button>
+        </form>
+        </>
+        )}
+
+        {activeTab === "history" && (
+        <div className="panel anim-fade-up" style={{ marginTop: 20 }}>
+          <div className="section-label" style={{ marginBottom: 10 }}>Trade log</div>
+          {tradeOnlyLog.length === 0 ? (
+            <div className="empty-state">
+              <div className="empty-icon"><Icon.List width={26} height={26} /></div>
+              <div className="empty-title">No trades yet</div>
+              <div className="empty-body">Log a win or a loss and it'll show up here.</div>
+              <button type="button" onClick={goLogTrade} className="btn btn-ghost btn-sm">Log a trade</button>
+            </div>
+          ) : (
+            <div>
+              {tradeOnlyLog.map((t) => (
+                <div key={t.id} className={"ledger-row " + (t.id === lastAddedId ? "anim-slide-down" : "")}>
+                  <div className="stack">
+                    <span className="ledger-main">{fmtDate(t.date)}{t.pair ? ` · ${t.pair}` : ""}</span>
+                    <span className="ledger-sub">{fmtLot(t.lot)} lot</span>
+                  </div>
+                  <div className="row g3">
+                    <span className={"ledger-amt " + (t.amount >= 0 ? "gain" : "loss")}>{fmtMoney(t.amount)}</span>
+                    <button onClick={() => handleDelete(t.id)} className="ledger-del" aria-label="Delete trade">
+                      <Icon.Trash />
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+        )}
+
+        {activeTab === "withdrawals" && (
+        <>
+        <div className="panel anim-fade-up" style={{ marginTop: 20 }}>
+          <div className="row g2" style={{ marginBottom: 14 }}>
+            <span style={{ color: "var(--ink-dim)" }}><Icon.BankNote /></span>
+            <span className="section-label">Cash movements</span>
+          </div>
+          <div className="grid2">
+            <div>
+              <div className="stat-label">Total withdrawn</div>
+              <div className="stat-value">{fmtMoney(totalWithdrawn)}</div>
+            </div>
+            <div>
+              <div className="stat-label">Total deposited</div>
+              <div className="stat-value">{fmtMoney(totalDeposited)}</div>
+            </div>
+          </div>
+        </div>
+
+        <form onSubmit={handleAddWithdrawal} className="panel section-gap anim-fade-up" style={{ animationDelay: "90ms" }}>
+          <div className="form-title">Log a withdrawal or deposit</div>
+          <div className="seg">
+            <button type="button"
+              onClick={() => { if (wdForm.type !== "deposit") vibrate(5); setWdForm((f) => ({ ...f, type: "deposit" })); }}
+              className={"seg-btn" + (wdForm.type === "deposit" ? " active deposit" : "")}>
+              Deposit
+            </button>
+            <button type="button"
+              onClick={() => { if (wdForm.type !== "withdraw") vibrate(5); setWdForm((f) => ({ ...f, type: "withdraw" })); }}
+              className={"seg-btn" + (wdForm.type === "withdraw" ? " active withdraw" : "")}>
+              Withdraw
+            </button>
+          </div>
+          <input type="date" value={wdForm.date} onChange={(e) => setWdForm((f) => ({ ...f, date: e.target.value }))}
+            className="field mono w-full" style={{ marginBottom: 14 }} />
+          <div style={{ marginBottom: 16 }}>
+            <input type="number" inputMode="decimal" step="0.01" min="0"
+              placeholder="Amount"
+              value={wdForm.amount}
+              onChange={(e) => { setWdForm((f) => ({ ...f, amount: e.target.value })); if (wdAmountError) setWdAmountError(null); }}
+              className={"field mono w-full" + (wdAmountError ? " err" : "")} />
+            {wdAmountError && <p className="field-err-text">{wdAmountError}</p>}
+          </div>
+          <button type="submit" className={"btn w-full " + (wdForm.type === "withdraw" ? "btn-withdraw" : "btn-cash")} style={{ width: "100%" }}>
+            <Icon.Plus /> {wdForm.type === "withdraw" ? "Add withdrawal" : "Add deposit"}
           </button>
         </form>
 
-        <div className="anim-fade-up bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-5" style={{ animationDelay: "450ms" }}>
-          <div className="text-slate-500 text-sm mb-3">Trade log</div>
-          {sortedTrades.length === 0 ? (
-            <div className="text-sm text-slate-500 py-4 text-center">No trades yet. Add your first one above.</div>
+        <div className="panel section-gap anim-fade-up" style={{ animationDelay: "160ms" }}>
+          <div className="section-label" style={{ marginBottom: 10 }}>Withdrawal &amp; deposit log</div>
+          {adjustmentLog.length === 0 ? (
+            <div className="empty-state">
+              <div className="empty-icon"><Icon.BankNote width={26} height={26} /></div>
+              <div className="empty-title">No cash movements yet</div>
+              <div className="empty-body">Deposits and withdrawals you log below will show up here.</div>
+            </div>
           ) : (
-            <div className="space-y-1">
-              {sortedTrades.map((t) => {
-                const isAdjustment = t.type === "adjustment";
-                const isDeposit = isAdjustment && t.amount >= 0;
+            <div>
+              {adjustmentLog.map((t) => {
+                const isDeposit = t.amount >= 0;
                 return (
-                  <div key={t.id} className={"flex items-center justify-between py-3 border-b border-slate-800 last:border-0 transition-colors active:bg-slate-800/40 rounded-lg px-2 -mx-2 " + (t.id === lastAddedId ? "anim-slide-down" : "")}>
-                    <div className="flex flex-col">
-                      <span className="text-sm text-slate-300">{fmtDate(t.date)}{t.pair ? ` · ${t.pair}` : ""}</span>
-                      <span className="text-xs text-slate-600">{isAdjustment ? (isDeposit ? "Deposit" : "Withdrawal") : `${fmtLot(t.lot)} lot`}</span>
+                  <div key={t.id} className={"ledger-row " + (t.id === lastAddedId ? "anim-slide-down" : "")}>
+                    <div className="stack">
+                      <span className="ledger-main">{fmtDate(t.date)}</span>
+                      <span className="ledger-sub">{isDeposit ? "Deposit" : "Withdrawal"}</span>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <span className={"text-sm font-medium tabular-nums " + (isAdjustment ? "text-sky-400" : t.amount >= 0 ? "text-emerald-400" : "text-rose-400")}>{fmtMoney(t.amount)}</span>
-                      <button onClick={() => handleDelete(t.id)} className="touch-manipulation text-slate-700 active:text-rose-400 active:scale-90 transition-all p-2.5 -m-2.5" aria-label="Delete entry">
+                    <div className="row g3">
+                      <span className={"ledger-amt " + (isDeposit ? "cash" : "loss")}>{fmtMoney(t.amount)}</span>
+                      <button onClick={() => handleDelete(t.id)} className="ledger-del" aria-label="Delete entry">
                         <Icon.Trash />
                       </button>
                     </div>
@@ -1013,13 +1327,29 @@ function App() {
             </div>
           )}
         </div>
+        </>
+        )}
       </div>
 
-      <button onClick={jumpToAddTrade} aria-label="Jump to add trade"
-        className="touch-manipulation fixed z-40 right-5 bg-amber-500 active:bg-amber-400 active:scale-90 text-slate-950 rounded-full w-14 h-14 flex items-center justify-center shadow-lg shadow-amber-500/30 transition-all"
-        style={{ bottom: "max(20px, env(safe-area-inset-bottom))" }}>
-        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></svg>
-      </button>
+      <div className="tabbar" style={{ paddingBottom: "env(safe-area-inset-bottom)" }}>
+        <div className="tabbar-inner">
+          <button onClick={() => { if (activeTab !== "overview") vibrate(5); setActiveTab("overview"); }} className={"tab" + (activeTab === "overview" ? " active" : "")}>
+            {activeTab === "overview" && <span className="tab-tick" />}
+            <Icon.Home />
+            <span className="tab-label">Overview</span>
+          </button>
+          <button onClick={() => { if (activeTab !== "history") vibrate(5); setActiveTab("history"); }} className={"tab" + (activeTab === "history" ? " active" : "")}>
+            {activeTab === "history" && <span className="tab-tick" />}
+            <Icon.List />
+            <span className="tab-label">History</span>
+          </button>
+          <button onClick={() => { if (activeTab !== "withdrawals") vibrate(5); setActiveTab("withdrawals"); }} className={"tab" + (activeTab === "withdrawals" ? " active" : "")}>
+            {activeTab === "withdrawals" && <span className="tab-tick" />}
+            <Icon.BankNote />
+            <span className="tab-label">Withdrawals</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
